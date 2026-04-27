@@ -30,3 +30,4 @@ namespace LibraryCodeGroupProject
 }
 // The logic is not complete yet, we will add methods for adding, removing and viewing books, customers and loans. We will also add some helper methods for validating input and other common tasks.
 // is going to be more complete in the future, we will add more methods and logic as we go along. We will also add some error handling and validation to make sure the program runs smoothly.
+// bra jobbat Andreas. Ellinor och Mattis har kikat tillsammans, vi återkommer med mer
