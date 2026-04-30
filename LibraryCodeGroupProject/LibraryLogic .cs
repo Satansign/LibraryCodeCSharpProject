@@ -17,7 +17,7 @@ namespace LibraryCodeGroupProject
             books = new List<Book>();
             customers = new List<Customer>();
         }
-        public list <Book> GetBooks()
+        public List<Book> GetBooks()
         {
             return books;
         }

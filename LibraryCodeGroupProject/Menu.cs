@@ -1,4 +1,5 @@
 ﻿using LanguageExt;
+using LanguageExt.TypeClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace LibraryCodeGroupProject
 {
     public class Menu
     {
+ 
 
         public void DisplayMenu()
         {
@@ -50,7 +52,7 @@ namespace LibraryCodeGroupProject
 
 
         // Here we put all our diffrent menu options for Books, Customers and Loans. We also have an option to exit the program.
-    private void ShowBookMenu()
+        private void ShowBookMenu()
         {
             Console.WriteLine("Books Menu:");
             Console.WriteLine("1. Add Book");
@@ -84,7 +86,7 @@ namespace LibraryCodeGroupProject
 
 
             // Handle exit choice here
-    private void ShowExit()
+        private void ShowExit()
         {
             Console.WriteLine("Exiting the program. Goodbye!");
         }
