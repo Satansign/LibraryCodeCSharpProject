@@ -45,24 +45,22 @@ namespace LibraryCodeGroupProject
                     break;
             }
         }
-    }
+    
         
 
 
         // Here we put all our diffrent menu options for Books, Customers and Loans. We also have an option to exit the program.
-private void ShowBookMenu()
+    private void ShowBookMenu()
         {
-
             Console.WriteLine("Books Menu:");
             Console.WriteLine("1. Add Book");
             Console.WriteLine("2. Remove Book");
             Console.WriteLine("3. View Books");
             Console.WriteLine("4. Back to Main Menu");
             string bookChoice = Console.ReadLine();
-    // Handle book menu choices here
-
-
-private void ShowCustomerMenu()
+            // Handle book menu choices here
+        }
+        private void ShowCustomerMenu()
         {
             Console.WriteLine("Customers Menu:");
             Console.WriteLine("1. Add Customer");
@@ -70,10 +68,10 @@ private void ShowCustomerMenu()
             Console.WriteLine("3. View Customers");
             Console.WriteLine("4. Back to Main Menu");
             string customerChoice = Console.ReadLine();
-    // Handle customer menu choices here
+            // Handle customer menu choices here
 
-
-     private void ShowLoanMenu()
+        }
+        private void ShowLoanMenu()
         {
             Console.WriteLine("Loans Menu:");
             Console.WriteLine("1. Add Loan");
@@ -81,11 +79,12 @@ private void ShowCustomerMenu()
             Console.WriteLine("3. View Loans");
             Console.WriteLine("4. Back to Main Menu");
             string loanChoice = Console.ReadLine();
-    // Handle loan menu choices here
+            // Handle loan menu choices here
+        }
 
 
             // Handle exit choice here
-     private void ShowExit()
+    private void ShowExit()
         {
             Console.WriteLine("Exiting the program. Goodbye!");
         }
