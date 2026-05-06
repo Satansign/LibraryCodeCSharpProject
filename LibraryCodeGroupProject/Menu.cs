@@ -12,21 +12,21 @@ namespace LibraryCodeGroupProject
     public class Menu
     {
 
-
         public void DisplayMenu()
         {
-            
-
-
-                Console.WriteLine("Welcome to the Library Management System!");
-                Console.WriteLine("Please select an option:");
+                Console.Clear();        // I addd this code to clear the window every time we display the menu
+                Console.WriteLine("*********************************************************************************");
+                Console.WriteLine("    Welcome to the Library Management System by Ellinor, Andreas, and Mattis!");
+                Console.WriteLine("*********************************************************************************");
+                // Console.WriteLine("Please select an option:");
                 Console.WriteLine("1. Books");
                 Console.WriteLine("2. Customers");
                 Console.WriteLine("3. Loans");
                 Console.WriteLine("4. Exit");
+                Console.WriteLine(" ");
+                Console.WriteLine("Please select an option (1-4):");
+                
                 string choice = Console.ReadLine();
-
-
 
 
                 switch (choice)
@@ -52,12 +52,11 @@ namespace LibraryCodeGroupProject
         }
     
         
-
-
         // Here we put all our diffrent menu options for Books, Customers and Loans. We also have an option to exit the program.
         private void ShowBookMenu()
         {
-            Console.WriteLine("Books Menu:");
+            Console.WriteLine("*** Books Menu ***");
+            Console.WriteLine(" ");
             Console.WriteLine("1. Add Book");
             Console.WriteLine("2. Remove Book");
             Console.WriteLine("3. View Books");
@@ -86,7 +85,8 @@ namespace LibraryCodeGroupProject
         // Here we put all our diffrent menu options for Books
         private void ShowCustomerMenu()
         {
-            Console.WriteLine("Customers Menu:");
+            Console.WriteLine("*** Customers Menu ***");
+            Console.WriteLine(" ");
             Console.WriteLine("1. Add Customer");
             Console.WriteLine("2. Remove Customer");
             Console.WriteLine("3. View Customers");
@@ -117,7 +117,8 @@ namespace LibraryCodeGroupProject
 
         private void ShowLoanMenu()
         {
-            Console.WriteLine("Loans Menu:");
+            Console.WriteLine("*** Loans Menu ***");
+            Console.WriteLine(" ");
             Console.WriteLine("1. Add Loan");
             Console.WriteLine("2. Remove Loan");
             Console.WriteLine("3. View Loans");
@@ -153,8 +154,10 @@ namespace LibraryCodeGroupProject
     }
 }
 
+// -------------------------
+//    Development Notes
+// -------------------------
+//
 // The menu file is not complete. Now i going to do the logic in the LibraryLogic file and then come back to the menu to connect it to the logic. I want to do this because i want to have a clear separation between the menu and the logic. This way we can easily change the menu without affecting the logic and vice versa.
 // Please add your opinons in the menu file.
-
-
 // Jag har börjat bygga ut så vi har en liknade logic i våra filer. Ni kan ändra och lägga till det ni känner för. 
