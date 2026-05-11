@@ -28,6 +28,13 @@ namespace LibraryCodeGroupProject
             return Customers;               // Returns current list of customers
         }
 
+       public void AddBook(Book book)     // Add a book to the list book
+        {
+            Books.Add(book);
+        }
+
+      
+
     }
 }
 

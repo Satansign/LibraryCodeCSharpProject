@@ -11,6 +11,9 @@ namespace LibraryCodeGroupProject
 {
     public class Menu
     {
+        private LibraryLogic LibraryLogic = new LibraryLogic();   //I first missed to create an instance of the LibraryLogic class,
+                                                                  //but now we have it and we can use it to call the methods for adding, removing and viewing books, customers and loans.
+
 
         public void DisplayMenu()
         {
@@ -67,12 +70,15 @@ namespace LibraryCodeGroupProject
                 {
                 case "1":
                     // Handle add book logic here
+                    AddBookMenu(); 
                     break;
+
                 case "2":
                     // Handle remove book logic here
                     break;
                 case "3":
                     // Handle view books logic here
+                    ViewBooksMenu();
                     break;
                 case "4":
                     DisplayMenu();
@@ -83,6 +89,44 @@ namespace LibraryCodeGroupProject
             }
         }
         // Here we put all our diffrent menu options for Books
+        private void AddBookMenu()
+        {
+            Console.Write("Title: ");
+            string title = Console.ReadLine();
+
+            Console.Write("Author: ");
+            string author = Console.ReadLine();
+
+            Console.Write("ISBN: ");
+            string isbn = Console.ReadLine();
+
+            Book newBook = new Book
+            {
+                Title = title,
+                Author = author,
+                ISBN = isbn,
+                IsAvailable = true
+            };
+            LibraryLogic.AddBook(newBook);
+            Console.WriteLine("Book added successfully!");
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+            ShowBookMenu();
+        }
+        
+        private void ViewBooksMenu()
+            {
+            Console.WriteLine("Books in the library:");
+            List<Book> books = LibraryLogic.GetBooks();
+            foreach (Book book in books)
+            {
+                Console.WriteLine(book.Title);
+            }
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+            ShowBookMenu();
+        }
+
         private void ShowCustomerMenu()
         {
             Console.WriteLine("*** Customers Menu ***");
