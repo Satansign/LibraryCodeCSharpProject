@@ -22,7 +22,7 @@ namespace LibraryCodeGroupProject
                 Console.WriteLine("3. Loans");
                 Console.WriteLine("4. Exit");
                 Console.WriteLine(" ");
-                Console.WriteLine("Please select an option (1-4):");
+                Console.Write("Please select an option (1-4): ");
                 
                 string choice = Console.ReadLine();
 
@@ -86,13 +86,13 @@ namespace LibraryCodeGroupProject
         private void AddBookMenu()
         {
             Console.Write("Title: ");
-            string title = Console.ReadLine();
+             string title = Console.ReadLine();
 
-            Console.Write("Author: ");
-            string author = Console.ReadLine();
+             Console.Write("Author: ");
+             string author = Console.ReadLine();
 
-            Console.Write("ISBN: ");
-            string isbn = Console.ReadLine();
+             Console.Write("ISBN: ");
+             string isbn = Console.ReadLine(); 
 
             Book newBook = new Book
             {
@@ -103,7 +103,7 @@ namespace LibraryCodeGroupProject
             };
             LibraryLogic.AddBook(newBook);
             Console.WriteLine("Book added successfully!");
-            Console.WriteLine("Press Enter to continue...");
+          //  Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
             ShowBookMenu();
         }
@@ -112,14 +112,28 @@ namespace LibraryCodeGroupProject
             {
             Console.WriteLine("Books in the library:");
             List<Book> books = LibraryLogic.GetBooks();
+            Console.WriteLine("Title            | Author                  | ISBN");
             foreach (Book book in books)
             {
-                Console.WriteLine(book.Title);
+                Console.Write(book.Title);
+                    for (int i = book.Title.Length; i < 20; i++)
+                    {
+                    Console.Write(" "); //To even out the properties in the list evenly
+                    }
+                Console.Write("  | " + book.Author);
+                     for (int i = book.Author.Length; i < 20; i++)
+                     {
+                    Console.Write(" ");
+                     }
+                Console.WriteLine("  |" + book.ISBN);
             }
-            Console.WriteLine("Press Enter to continue...");
+
+          //  Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
             ShowBookMenu();
+
         }
+        
 
         private void ShowCustomerMenu()
         {
