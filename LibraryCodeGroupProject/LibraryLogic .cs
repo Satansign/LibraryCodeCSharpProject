@@ -27,13 +27,22 @@ namespace LibraryCodeGroupProject
         {
             return Customers;               // Returns current list of customers
         }
-
-       public void AddBook(Book book)     // Add a book to the list book
+        public void AddBook(Book book)     // Add a book to the list book
         {
             Books.Add(book);
         }
 
-      
+        public void AddCustomer(Customer customer)     // Add a customer to the list Customer
+        {
+            Customers.Add(customer);
+        }
+        public void RemoveCustomer(Customer customer)     // Remove a customer from the list Customer
+        {
+            Customers.Remove(customer);
+        }
+
+
+
 
     }
 }

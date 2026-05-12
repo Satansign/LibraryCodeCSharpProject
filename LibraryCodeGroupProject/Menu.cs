@@ -1,11 +1,6 @@
-﻿using LanguageExt;
-using LanguageExt.TypeClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace LibraryCodeGroupProject
 {
@@ -30,7 +25,6 @@ namespace LibraryCodeGroupProject
                 Console.WriteLine("Please select an option (1-4):");
                 
                 string choice = Console.ReadLine();
-
 
                 switch (choice)
                 {
@@ -141,12 +135,61 @@ namespace LibraryCodeGroupProject
             {
                 case "1":
                     // Handle add customer logic here
+                    Console.Write("Customer name: ");
+                    string cName = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(cName))
+                    {
+                        Console.Write("Customer ID: ");
+                        string cID = Console.ReadLine();
+                        if (!string.IsNullOrEmpty(cID))
+                        {
+                            Customer newCustomer = new Customer
+                            {
+                                CustomerName = cName,
+                                CustomerID = cID
+                            };
+                            LibraryLogic.AddCustomer(newCustomer);
+                            ShowCustomerMenu();
+                        }
+                    }
+                    Console.WriteLine("Can't be empty. Please try again.");
+                    ShowCustomerMenu();
                     break;
                 case "2":
                     // Handle remove customer logic here
+                    Console.WriteLine("Customer ID you want to remove: ");
+                    List<Customer> customerDeletion = LibraryLogic.GetCustomers();
+                    string cSearch = Console.ReadLine();
+                    if (!string.IsNullOrEmpty(cSearch))
+                    {
+                        var cDeletion = customerDeletion.Find(x => x.CustomerID.Equals(cSearch)); //Searching for the ID that was written.
+                        Console.WriteLine($"{cDeletion.CustomerName} has been removed from the system.");
+                        LibraryLogic.RemoveCustomer(cDeletion);
+                        ShowCustomerMenu();
+                    }
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    ShowCustomerMenu();
                     break;
                 case "3":
                     // Handle view customers logic here
+                    Console.WriteLine("Viewing all customers");
+                    Console.WriteLine("Customer            | ID                  | Books loaned");
+                    List<Customer> customers = LibraryLogic.GetCustomers();
+                    foreach (Customer customer in customers)
+                    {
+                        Console.Write(customer.CustomerName);
+                        for (int i = customer.CustomerName.Length; i < 20; i++)
+                        {
+                            Console.Write(" "); //To even out the properties in the list evenly
+                        }
+                        Console.Write("| " + customer.CustomerID);
+                        for (int i = customer.CustomerID.Length; i < 20; i++)
+                        {
+                            Console.Write(" ");
+                        }
+                        Console.WriteLine($"| {customer.LoanedBooks}");  // Nothing visible yet.
+                    }
+                    ShowCustomerMenu();
                     break;
                 case "4":
                     DisplayMenu();
