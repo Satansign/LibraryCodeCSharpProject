@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-// The menu calls this file (LibraryLogic.cs) for having the logic for the library management system. 
+// The menu calls this file (LibraryLogi.cs) for having the logic for the library management system. 
 // We will put all our logic for adding, removing and viewing books, customers and loans here.
 // We will also have some helper methods for validating input and other common tasks.
 
