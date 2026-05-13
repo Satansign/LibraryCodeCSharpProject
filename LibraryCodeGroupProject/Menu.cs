@@ -103,7 +103,7 @@ namespace LibraryCodeGroupProject
             };
             LibraryLogic.AddBook(newBook);
             Console.WriteLine("Book added successfully!");
-          //  Console.WriteLine("Press Enter to continue...");
+            Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
             ShowBookMenu();
         }
@@ -112,7 +112,7 @@ namespace LibraryCodeGroupProject
             {
             Console.WriteLine("Books in the library:");
             List<Book> books = LibraryLogic.GetBooks();
-            Console.WriteLine("Title            | Author                  | ISBN");
+            Console.WriteLine("Title               | Author              | ISBN Title ");
             foreach (Book book in books)
             {
                 Console.Write(book.Title);
@@ -120,12 +120,12 @@ namespace LibraryCodeGroupProject
                     {
                     Console.Write(" "); //To even out the properties in the list evenly
                     }
-                Console.Write("  | " + book.Author);
+                Console.Write("| " + book.Author);
                      for (int i = book.Author.Length; i < 20; i++)
                      {
                     Console.Write(" ");
                      }
-                Console.WriteLine("  |" + book.ISBN);
+                Console.WriteLine("| " + book.ISBN);
             }
 
           //  Console.WriteLine("Press Enter to continue...");
