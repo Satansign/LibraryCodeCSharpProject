@@ -7,7 +7,9 @@ namespace LibraryCodeGroupProject
     public class Menu
     {
         private LibraryLogic LibraryLogic = new LibraryLogic();   //I first missed to create an instance of the LibraryLogic class,
-                                                                  //but now we have it and we can use it to call the methods for adding, removing and viewing books, customers and loans.
+        private bool running;
+
+        //but now we have it and we can use it to call the methods for adding, removing and viewing books, customers and loans.
 
 
         public void DisplayMenu()
@@ -39,10 +41,12 @@ namespace LibraryCodeGroupProject
                         break;
                     case "4":
                         ShowExit();
-                        Console.WriteLine("Exiting the program. Goodbye!");
+                    running = false; // This will stop the while loop in the Program.cs file and exit the program.
+                    Console.WriteLine("Exiting the program. Goodbye!");
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
+                    Pause();
                         break;
                 }
             
