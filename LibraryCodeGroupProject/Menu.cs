@@ -65,7 +65,7 @@ namespace LibraryCodeGroupProject
             Console.WriteLine("4. Back to Main Menu");
             Console.WriteLine("5. Exit");
             Console.WriteLine(" ");
-            Console.Write("Please select an option (1-4): ");
+            Console.Write("Please select an option (1-5): ");
             string bookChoice = Console.ReadLine();
              
             switch (bookChoice) 
@@ -192,8 +192,9 @@ namespace LibraryCodeGroupProject
             Console.WriteLine("2. Remove Customer");
             Console.WriteLine("3. View Customers");
             Console.WriteLine("4. Back to Main Menu");
+            Console.WriteLine("5. Exit");
             Console.WriteLine(" ");
-            Console.Write("Please select an option (1-4): ");
+            Console.Write("Please select an option (1-5): ");
             string customerChoice = Console.ReadLine();
             
             switch (customerChoice)
@@ -216,11 +217,13 @@ namespace LibraryCodeGroupProject
                                 CustomerID = cID
                             };
                             LibraryLogic.AddCustomer(newCustomer);
+                            Console.WriteLine("Customer added successfully!");
                             Console.ReadLine();
                             ShowCustomerMenu();
                         }
-                        Console.Write("Can't be empty. Please press Enter to try again. ");
+                        
                     }
+                    Console.Write("Can't be empty. Please press Enter to try again. ");
                     Console.ReadLine(); 
                     ShowCustomerMenu();
                     break;
@@ -246,7 +249,8 @@ namespace LibraryCodeGroupProject
                     Console.Clear();                             // Clear the console to make it look cleaner when we enter the book menu.
                     Console.WriteLine(" ");
                     Console.WriteLine("Viewing all customers");
-                    Console.WriteLine("Customer            | ID                  | Books loaned");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Customer            | ID                  ");
                     List<Customer> customers = LibraryLogic.GetCustomers();
                     foreach (Customer customer in customers)
                     {
@@ -256,20 +260,18 @@ namespace LibraryCodeGroupProject
                             Console.Write(" "); //To even out the properties in the list evenly
                         }
                         Console.Write("| " + customer.CustomerID);
-                        for (int i = customer.CustomerID.Length; i < 20; i++)
-                        {
-                            Console.Write(" ");
-                        }
-                        Console.WriteLine($"| {customer.LoanedBooks}");  // Nothing visible yet.
-                                                                            // LÅNADE BÖCKER SKA INTE VISAS HÄR 
-                                                                            //- BARA VILKA CUSTOMERS SOM FINNS I SYSTEMET. 
-                                                                            ///@MATTIS - fixar du?
+                                                                            
                     }
-                    Console.ReadLine();
+                    Console.WriteLine(" "); 
+                    Console.Write("Press Enter to go back to the Customer Menu. ");
+                    Console.ReadLine(); 
                     ShowCustomerMenu();
                     break;
                 case "4":
                     DisplayMenu();
+                    break;
+                case "5":
+                    ShowExit();
                     break;
                 default:
                     Console.Write("Invalid choice. Please press Enter to try again. ");
