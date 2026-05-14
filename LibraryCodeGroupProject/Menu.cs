@@ -216,7 +216,8 @@ namespace LibraryCodeGroupProject
                                 CustomerID = cID
                             };
                             LibraryLogic.AddCustomer(newCustomer);
-                            
+                            Console.ReadLine();
+                            ShowCustomerMenu();
                         }
                         Console.Write("Can't be empty. Please press Enter to try again. ");
                     }
@@ -264,6 +265,7 @@ namespace LibraryCodeGroupProject
                                                                             //- BARA VILKA CUSTOMERS SOM FINNS I SYSTEMET. 
                                                                             ///@MATTIS - fixar du?
                     }
+                    Console.ReadLine();
                     ShowCustomerMenu();
                     break;
                 case "4":
