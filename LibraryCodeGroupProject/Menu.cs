@@ -220,6 +220,7 @@ namespace LibraryCodeGroupProject
                             Console.WriteLine("Customer added successfully!");
                             Console.ReadLine();
                             ShowCustomerMenu();
+                            return;
                         }
                         
                     }
