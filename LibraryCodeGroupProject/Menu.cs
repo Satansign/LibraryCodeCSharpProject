@@ -15,42 +15,42 @@ namespace LibraryCodeGroupProject
 
         public void DisplayMenu()
         {
-                Console.Clear();        // I addd this code to clear the window every time we display the menu
-                Console.WriteLine(" ");
-                Console.WriteLine("*********************************************************************************");
-                Console.WriteLine("    Welcome to the Library Management System by Ellinor, Andreas, and Mattis!");
-                Console.WriteLine("*********************************************************************************");
-                // Console.WriteLine("Please select an option:");
-                Console.WriteLine("1. Books");
-                Console.WriteLine("2. Customers");
-                Console.WriteLine("3. Loans");
-                Console.WriteLine("4. Exit");
-                Console.WriteLine(" ");
-                Console.Write("Please select an option (1-4): ");
-                
-                string choice = Console.ReadLine();
+            Console.Clear();        // I addd this code to clear the window every time we display the menu
+            Console.WriteLine(" ");
+            Console.WriteLine("*********************************************************************************");
+            Console.WriteLine("    Welcome to the Library Management System by Ellinor, Andreas, and Mattis!");
+            Console.WriteLine("*********************************************************************************");
+            // Console.WriteLine("Please select an option:");
+            Console.WriteLine("1. Books");
+            Console.WriteLine("2. Customers");
+            Console.WriteLine("3. Loans");
+            Console.WriteLine("4. Exit");
+            Console.WriteLine(" ");
+            Console.Write("Please select an option (1-4): ");
 
-                switch (choice)
-                {
-                    case "1":
-                        ShowBookMenu();
-                        break;
-                    case "2":
-                        ShowCustomerMenu();
-                        break;
-                    case "3":
-                        ShowLoanMenu();
-                        break;
-                    case "4":
-                        ShowExit();
-                         break;
-                    default:
-                        Console.Write("Invalid choice. Please press Enter to try again.");
-                        Console.ReadLine();
-                        DisplayMenu();
-                        break;
-                }
-            
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    ShowBookMenu();
+                    break;
+                case "2":
+                    ShowCustomerMenu();
+                    break;
+                case "3":
+                    ShowLoanMenu();
+                    break;
+                case "4":
+                    ShowExit();
+                    break;
+                default:
+                    Console.Write("Invalid choice. Please press Enter to try again.");
+                    Console.ReadLine();
+                    DisplayMenu();
+                    break;
+            }
+
         }
         // Here we put all our diffrent menu options for Books, Customers and Loans. We also have an option to exit the program.
         private void ShowBookMenu()
@@ -67,12 +67,12 @@ namespace LibraryCodeGroupProject
             Console.WriteLine(" ");
             Console.Write("Please select an option (1-5): ");
             string bookChoice = Console.ReadLine();
-             
-            switch (bookChoice) 
-                {
+
+            switch (bookChoice)
+            {
                 case "1":
                     // Handle add book logic here
-                    AddBookMenu(); 
+                    AddBookMenu();
                     break;
                 case "2":
                     // Handle remove book logic here
@@ -101,13 +101,13 @@ namespace LibraryCodeGroupProject
             Console.Clear();
             Console.WriteLine("Please write the book's title, author and ISBN-number.");
             Console.Write("Title: ");
-             string title = Console.ReadLine();
+            string title = Console.ReadLine();
 
-             Console.Write("Author: ");
-             string author = Console.ReadLine();
+            Console.Write("Author: ");
+            string author = Console.ReadLine();
 
-             Console.Write("ISBN: ");
-             string isbn = Console.ReadLine(); 
+            Console.Write("ISBN: ");
+            string isbn = Console.ReadLine();
 
             Book newBook = new Book
             {
@@ -136,23 +136,23 @@ namespace LibraryCodeGroupProject
             Book bookToRemove = Books.Find(book => book.ISBN == isbnToRemove);  //Söker i listan books efter en bok med angivet isbn
                                                                                 // om ingen bok hittas blir bookToRemove null 
 
-                if (bookToRemove == null)  //kollar om ingen bok hittades
-                {
-                   Console.WriteLine("Book not found. Please press Enter to try again. ");
-                }
-                else
-                {
-                    Books.Remove(bookToRemove); //om en bok isbn hittades så tas den bort från listan
-                    // LibraryLogic.RemoveBook(bookToRemove);
-                    Console.WriteLine($"Book with ISBN {isbnToRemove} has been removed successfully!");
-                    Console.Write("Press Enter to go back to Book menu. ");
+            if (bookToRemove == null)  //kollar om ingen bok hittades
+            {
+                Console.WriteLine("Book not found. Please press Enter to try again. ");
+            }
+            else
+            {
+                Books.Remove(bookToRemove); //om en bok isbn hittades så tas den bort från listan
+                                            // LibraryLogic.RemoveBook(bookToRemove);
+                Console.WriteLine($"Book with ISBN {isbnToRemove} has been removed successfully!");
+                Console.Write("Press Enter to go back to Book menu. ");
             }
             Console.ReadLine();
             ShowBookMenu(); //skickar tillbaks användaren till Book-menun
         }
 
         private void ViewBooksMenu()
-            {
+        {
             Console.Clear();                             // Clear the console to make it look cleaner when we enter the book menu.
             Console.WriteLine(" ");
             Console.WriteLine("*** BOOKS IN THE LIBRARY ***");
@@ -162,30 +162,30 @@ namespace LibraryCodeGroupProject
             foreach (Book book in books)
             {
                 Console.Write(book.Title);
-                    for (int i = book.Title.Length; i < 20; i++)
-                    {
+                for (int i = book.Title.Length; i < 20; i++)
+                {
                     Console.Write(" "); //To even out the properties in the list evenly
-                    }
+                }
                 Console.Write("| " + book.Author);
-                     for (int i = book.Author.Length; i < 20; i++)
-                     {
+                for (int i = book.Author.Length; i < 20; i++)
+                {
                     Console.Write(" ");
-                     }
+                }
                 Console.WriteLine("| " + book.ISBN);
             }
 
-            Console.WriteLine(" "); 
+            Console.WriteLine(" ");
             Console.Write("Press Enter to go back to the Books Menu. ");
             Console.ReadLine();
             ShowBookMenu();
-            
+
 
         }
-        
+
 
         private void ShowCustomerMenu()
         {
-            Console.Clear(); 
+            Console.Clear();
             Console.WriteLine("*** Customers Menu ***");
             Console.WriteLine(" ");
             Console.WriteLine("1. Add Customer");
@@ -196,7 +196,7 @@ namespace LibraryCodeGroupProject
             Console.WriteLine(" ");
             Console.Write("Please select an option (1-5): ");
             string customerChoice = Console.ReadLine();
-            
+
             switch (customerChoice)
             {
                 case "1":
@@ -222,10 +222,10 @@ namespace LibraryCodeGroupProject
                             ShowCustomerMenu();
                             return;
                         }
-                        
+
                     }
                     Console.Write("Can't be empty. Please press Enter to try again. ");
-                    Console.ReadLine(); 
+                    Console.ReadLine();
                     ShowCustomerMenu();
                     break;
                 case "2":
@@ -261,11 +261,11 @@ namespace LibraryCodeGroupProject
                             Console.Write(" "); //To even out the properties in the list evenly
                         }
                         Console.Write("| " + customer.CustomerID);
-                                                                            
+
                     }
-                    Console.WriteLine(" "); 
+                    Console.WriteLine(" ");
                     Console.Write("Press Enter to go back to the Customer Menu. ");
-                    Console.ReadLine(); 
+                    Console.ReadLine();
                     ShowCustomerMenu();
                     break;
                 case "4":
@@ -284,26 +284,29 @@ namespace LibraryCodeGroupProject
 
         private void ShowLoanMenu()
         {
-            Console.Clear(); 
+            Console.Clear();
             Console.WriteLine("*** Loans Menu ***");
             Console.WriteLine(" ");
             Console.WriteLine("1. Add Loan");
-            Console.WriteLine("2. Remove Loan");
+            Console.WriteLine("2. Return Loan");
             Console.WriteLine("3. View Loans");
             Console.WriteLine("4. Back to Main Menu");
             Console.WriteLine(" ");
             Console.Write("Please select an option (1-4): ");
             string loanChoice = Console.ReadLine();
-            
-            switch(loanChoice) 
-                {
+
+            switch (loanChoice)
+            {
                 case "1":
+                    AddLoanMenu();
                     // Handle add loan logic here
                     break;
                 case "2":
-                    // Handle remove loan logic here
+                    ReturnLoanMenu();
+                    // Handle return loan logic here
                     break;
                 case "3":
+                    ViewLoansMenu();
                     // Handle view loans logic here
                     break;
                 case "4":
@@ -314,17 +317,161 @@ namespace LibraryCodeGroupProject
                     break;
             }
         }
+        private void AddLoanMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Adding a new loan.");
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Please write the ISBN of the book you want to loan and the ID of the customer who wants to loan it.");
+            Console.WriteLine();
+
+            bool foundAvailableBooks = ShowAvailableBooksMenu();
+            if (!foundAvailableBooks)
+            {
+                Console.WriteLine("No available books to loan. Press Enter to go back to the Loans Menu.");
+                Console.ReadLine();
+                ShowLoanMenu();
+                return;
+            }
+            bool foundCustomers = ShowCustomersForLoanMenu();
+            if (!foundCustomers)
+            {
+                Console.WriteLine("No customers found. Press Enter to go back to the Loans Menu.");
+                Console.ReadLine();
+                ShowLoanMenu();
+                return;
+            }
+            Console.Write("Book ISBN: ");
+            string bookISBN = Console.ReadLine();
+            Console.Write("Customer ID: ");
+            string customerID = Console.ReadLine();
+            string loanResult = LibraryLogic.LoanBook(customerID, bookISBN);
+            Console.WriteLine(loanResult);
+            Console.WriteLine(" ");
+            Console.Write("Press Enter to go back to the Loans Menu. ");
+            Console.ReadLine();
+            ShowLoanMenu();
+        }
+
+        private void ReturnLoanMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Returning a loan.");
+            Console.WriteLine(" ");
+            Console.WriteLine("Please write the ISBN of the book you want to return and the ID of the customer who wants to return it.");
+            Console.Write("Book ISBN: ");
+            string bookISBN = Console.ReadLine();
+            Console.Write("Customer ID: ");
+            string customerID = Console.ReadLine();
+            // Here we would call a method in LibraryLogic to return the loan, for example:
+            // LibraryLogic.ReturnLoan(bookISBN, customerID);
+
+            Console.WriteLine("Loan returned successfully!");
+            Console.WriteLine(" ");
+            Console.Write("Press Enter to go back to the Loans Menu. ");
+            Console.ReadLine();
+            ShowLoanMenu();
+        }
+        private void ViewLoansMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Viewing all loans.");
+            Console.WriteLine(" ");
+            List<Customer> customers = LibraryLogic.GetCustomers();
+            bool foundloan = false;
+            foreach (Customer customer in customers)
+            {
+                if (customer.LoanedBooks.Count > 0)
+                {
+                    foundloan = true;
+                    Console.WriteLine($"Customer: {customer.CustomerName} (ID: {customer.CustomerID}) has loaned the following books:");
+                    foreach (Book book in customer.LoanedBooks)
+                    {
+                        Console.WriteLine($"- {book.Title} by {book.Author} (ISBN: {book.ISBN})");
+                    }
+                    Console.WriteLine(" ");
+                }
+            }
+            if (!foundloan)
+            {
+                Console.WriteLine("No loans found.");
+            }
+
+            Console.WriteLine(" ");
+            Console.Write("Press Enter to go back to the Loans Menu. ");
+            Console.ReadLine();
+            ShowLoanMenu();
+        }
+
         // Here we put all our diffrent menu options for Loans
 
-            // Handle exit choice here
+        // Handle exit choice here
         private void ShowExit()
         {
             Console.Clear();                             // Clear the console to make it look cleaner when we enter the book menu.
-            Console.WriteLine(" "); 
+            Console.WriteLine(" ");
             Console.WriteLine("Exiting the program. Goodbye!");
+        }
+
+        private bool ShowAvailableBooksMenu()
+        {
+            List<Book> books = LibraryLogic.GetBooks();
+            bool foundAvailableBooks = false;
+            Console.WriteLine("Available Books:");
+            Console.WriteLine("Title               | Author              | ISBN ");
+            foreach (Book book in books)
+            {
+                if (book.IsAvailable)
+                {
+                    foundAvailableBooks = true;
+                    Console.Write(book.Title);
+                    for (int i = book.Title.Length; i < 20; i++)
+                    {
+                        Console.Write(" "); //To even out the properties in the list evenly
+                    }
+                    Console.Write("| " + book.Author);
+                    for (int i = book.Author.Length; i < 20; i++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine("| " + book.ISBN);
+                }
+            }
+            if (!foundAvailableBooks)
+            {
+                Console.WriteLine("No available books found.");
+            }
+            return foundAvailableBooks;
+        }
+
+
+        private bool ShowCustomersForLoanMenu()
+        {
+            List<Customer> customers = LibraryLogic.GetCustomers();
+            bool foundCustomers = false;
+            Console.WriteLine("Customers:");
+            Console.WriteLine("Customer            | ID");
+            Console.WriteLine("--------------------|--------------------");
+            foreach (Customer customer in customers)
+            {
+                foundCustomers = true;
+                Console.Write(customer.CustomerName);
+                for (int i = customer.CustomerName.Length; i < 20; i++)
+                {
+                    Console.Write(" "); //To even out the properties in the list evenly
+                }
+                Console.WriteLine("| " + customer.CustomerID);
+            }
+            if (!foundCustomers)
+            {
+                Console.WriteLine("No customers found.");
+            }
+            return foundCustomers;
         }
     }
 }
+
 
 // -------------------------
 //    Development Notes
