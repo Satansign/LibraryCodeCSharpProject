@@ -63,9 +63,8 @@ namespace LibraryCodeGroupProject
             Console.WriteLine("2. Remove Book");
             Console.WriteLine("3. View Books");
             Console.WriteLine("4. Back to Main Menu");
-            Console.WriteLine("5. Exit");
             Console.WriteLine(" ");
-            Console.Write("Please select an option (1-5): ");
+            Console.Write("Please select an option (1-4): ");
             string bookChoice = Console.ReadLine();
 
             switch (bookChoice)
@@ -84,9 +83,6 @@ namespace LibraryCodeGroupProject
                     break;
                 case "4":
                     DisplayMenu();
-                    break;
-                case "5":
-                    ShowExit();
                     break;
                 default:
                     Console.Write("Invalid choice. Please press Enter to try again. ");
@@ -178,10 +174,7 @@ namespace LibraryCodeGroupProject
             Console.Write("Press Enter to go back to the Books Menu. ");
             Console.ReadLine();
             ShowBookMenu();
-
-
         }
-
 
         private void ShowCustomerMenu()
         {
@@ -192,9 +185,8 @@ namespace LibraryCodeGroupProject
             Console.WriteLine("2. Remove Customer");
             Console.WriteLine("3. View Customers");
             Console.WriteLine("4. Back to Main Menu");
-            Console.WriteLine("5. Exit");
             Console.WriteLine(" ");
-            Console.Write("Please select an option (1-5): ");
+            Console.Write("Please select an option (1-4): ");
             string customerChoice = Console.ReadLine();
 
             switch (customerChoice)
@@ -271,11 +263,10 @@ namespace LibraryCodeGroupProject
                 case "4":
                     DisplayMenu();
                     break;
-                case "5":
-                    ShowExit();
-                    break;
                 default:
                     Console.Write("Invalid choice. Please press Enter to try again. ");
+                    Console.ReadLine();
+                    ShowCustomerMenu(); 
                     break;
             }
 
@@ -314,13 +305,15 @@ namespace LibraryCodeGroupProject
                     break;
                 default:
                     Console.Write("Invalid choice. Please press Enter to try again. ");
+                    Console.ReadLine();
+                    ShowLoanMenu();
                     break;
             }
         }
         private void AddLoanMenu()
         {
             Console.Clear();
-            Console.WriteLine("Adding a new loan.");
+            Console.WriteLine("*** Adding a new loan ***");
             Console.WriteLine(" ");
 
             Console.WriteLine("Please write the ISBN of the book you want to loan and the ID of the customer who wants to loan it.");
@@ -342,6 +335,7 @@ namespace LibraryCodeGroupProject
                 ShowLoanMenu();
                 return;
             }
+            Console.WriteLine(" "); 
             Console.Write("Book ISBN: ");
             string bookISBN = Console.ReadLine();
             Console.Write("Customer ID: ");
@@ -442,6 +436,7 @@ namespace LibraryCodeGroupProject
             {
                 Console.WriteLine("No available books found.");
             }
+            Console.WriteLine(" ");
             return foundAvailableBooks;
         }
 
