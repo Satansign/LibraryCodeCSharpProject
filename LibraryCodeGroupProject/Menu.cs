@@ -210,6 +210,7 @@ namespace LibraryCodeGroupProject
                             };
                             LibraryLogic.AddCustomer(newCustomer);
                             Console.WriteLine("Customer added successfully!");
+                            Console.Write("Press Enter to go back to the Customer Menu. ");
                             Console.ReadLine();
                             ShowCustomerMenu();
                             return;
@@ -238,7 +239,9 @@ namespace LibraryCodeGroupProject
                             return;
                         }
                         Console.WriteLine($"{cDeletion.CustomerName} has been removed from the system.");
+                        Console.Write("Press Enter to go back to the Customer Menu. ");
                         LibraryLogic.RemoveCustomer(cDeletion);
+                        Console.ReadLine();
                         ShowCustomerMenu();
                         return;
                     }
@@ -260,7 +263,7 @@ namespace LibraryCodeGroupProject
                         {
                             Console.Write(" "); //To even out the properties in the list evenly
                         }
-                        Console.Write("| " + customer.CustomerID);
+                        Console.WriteLine("| " + customer.CustomerID);
 
                     }
                     Console.WriteLine(" ");
