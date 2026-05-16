@@ -230,9 +230,17 @@ namespace LibraryCodeGroupProject
                     if (!string.IsNullOrEmpty(cSearch))
                     {
                         var cDeletion = customerDeletion.Find(x => x.CustomerID.Equals(cSearch)); //Searching for the ID that was written.
+                        if (cDeletion == null)
+                        {
+                            Console.WriteLine("Customer not found. Please press Enter to try again.");
+                            Console.ReadLine();
+                            ShowCustomerMenu();
+                            return;
+                        }
                         Console.WriteLine($"{cDeletion.CustomerName} has been removed from the system.");
                         LibraryLogic.RemoveCustomer(cDeletion);
                         ShowCustomerMenu();
+                        return;
                     }
                     Console.Write("Invalid choice. Please press Enter to try again.");
                     ShowCustomerMenu();
@@ -358,10 +366,8 @@ namespace LibraryCodeGroupProject
             string bookISBN = Console.ReadLine();
             Console.Write("Customer ID: ");
             string customerID = Console.ReadLine();
-            // Here we would call a method in LibraryLogic to return the loan, for example:
-            // LibraryLogic.ReturnLoan(bookISBN, customerID);
-
-            Console.WriteLine("Loan returned successfully!");
+            string returnResult = LibraryLogic.ReturnBook(customerID, bookISBN);
+            Console.WriteLine(returnResult);
             Console.WriteLine(" ");
             Console.Write("Press Enter to go back to the Loans Menu. ");
             Console.ReadLine();
