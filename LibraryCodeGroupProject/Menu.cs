@@ -430,19 +430,19 @@ namespace LibraryCodeGroupProject
             List<Book> books = LibraryLogic.GetBooks();
             bool foundAvailableBooks = false;
             Console.WriteLine("Available Books:");
-            Console.WriteLine("Title               | Author              | ISBN ");
+            Console.WriteLine("Title                         | Author                        | ISBN ");
             foreach (Book book in books)
             {
                 if (book.IsAvailable)
                 {
                     foundAvailableBooks = true;
                     Console.Write(book.Title);
-                    for (int i = book.Title.Length; i < 20; i++)
+                    for (int i = book.Title.Length; i < 30; i++)
                     {
                         Console.Write(" "); //To even out the properties in the list evenly
                     }
                     Console.Write("| " + book.Author);
-                    for (int i = book.Author.Length; i < 20; i++)
+                    for (int i = book.Author.Length; i < 30; i++)
                     {
                         Console.Write(" ");
                     }
@@ -463,13 +463,13 @@ namespace LibraryCodeGroupProject
             List<Customer> customers = LibraryLogic.GetCustomers();
             bool foundCustomers = false;
             Console.WriteLine("Customers:");
-            Console.WriteLine("Customer            | ID");
-            Console.WriteLine("--------------------|--------------------");
+            Console.WriteLine("Customer                      | ID");
+            Console.WriteLine("------------------------------|------------------------------");
             foreach (Customer customer in customers)
             {
                 foundCustomers = true;
                 Console.Write(customer.CustomerName);
-                for (int i = customer.CustomerName.Length; i < 20; i++)
+                for (int i = customer.CustomerName.Length; i < 30; i++)
                 {
                     Console.Write(" "); //To even out the properties in the list evenly
                 }
