@@ -105,6 +105,14 @@ namespace LibraryCodeGroupProject
             Console.Write("ISBN: ");
             string isbn = Console.ReadLine();
 
+            if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(isbn))
+            {
+                Console.Write("All fields are required. Please press Enter to try again. ");
+                Console.ReadLine();
+                ShowBookMenu();
+                return;
+            }
+
             Book newBook = new Book
             {
                 Title = title,
@@ -188,11 +196,11 @@ namespace LibraryCodeGroupProject
             Console.WriteLine(" ");
             Console.Write("Please select an option (1-4): ");
             string customerChoice = Console.ReadLine();
-
+            
             switch (customerChoice)
             {
                 case "1":
-                    //Console.Clear();
+                    Console.Clear();                             // Clear the console to make it look cleaner when we enter the book menu.
                     Console.WriteLine("Write name and ID for the customer you want to add.");
                     // Handle add customer logic here
                     Console.Write("Customer name: ");
